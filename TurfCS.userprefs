@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{909CB9ED-FC28-4FC4-91DB-26F492D0BE3F}|単体テスト">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TurfCSTest/JoinsTest.cs">
+    <Files>
+      <File FileName="../GeoJSON.Net/src/GeoJSON.Net.Tests/CoordinateReferenceSystem/DefaultCrsTests.cs" Line="1" Column="19" />
+      <File FileName="../GeoJSON.Net/src/GeoJSON.Net.Tests/Feature/FeatureTests.cs" Line="382" Column="4" />
+      <File FileName="../GeoJSON.Net/src/GeoJSON.Net.Tests/TestBase.cs" Line="23" Column="26" />
+      <File FileName="../GeoJSON.Net/src/GeoJSON.Net.Tests/JsonAssert.cs" Line="1" Column="1" />
+      <File FileName="../GeoJSON.Net/src/GeoJSON.Net.Tests/Geometry/PolygonTests_Can_Deserialize.json" Line="1" Column="1" />
+      <File FileName="../GeoJSON.Net/src/GeoJSON.Net.Tests/Geometry/PolygonTests.cs" Line="34" Column="29" />
+      <File FileName="TurfCSTest/JoinsTest.cs" Line="92" Column="19" />
+      <File FileName="TurfCS/Joins.cs" Line="149" Column="1" />
+      <File FileName="TurfCS/Helpers.cs" Line="37" Column="4" />
+      <File FileName="TurfCS/Invariant.cs" Line="1" Column="1" />
+      <File FileName="TurfCSTest/test/tagPoints.geojson" Line="73" Column="20" />
+      <File FileName="TurfCSTest/test/tagPolygons.geojson" Line="168" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/kokogiko/github/turf/TurfCSTest/JoinsTest.cs" line="87" column="1" />
+      <Breakpoint file="/Users/kokogiko/github/turf/TurfCSTest/JoinsTest.cs" line="89" column="1" />
+      <Breakpoint file="/Users/kokogiko/github/turf/TurfCSTest/JoinsTest.cs" line="95" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="TurfTest/Tools.cs" line="32" offsetX="328" offsetY="465" expression="e" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.ItemProperties.TurfCSTest PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
