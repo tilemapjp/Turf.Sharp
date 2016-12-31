@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="JoinsTest.cs" />
     <Compile Include="Tools.cs" />
+    <Compile Include="TinTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -48,6 +49,8 @@
     <EmbeddedResource Include="test\multipoly-with-hole.geojson" />
     <EmbeddedResource Include="test\tagPoints.geojson" />
     <EmbeddedResource Include="test\tagPolygons.geojson" />
+    <EmbeddedResource Include="test\Points.geojson" />
+    <EmbeddedResource Include="test\Point.geojson" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="test\" />
