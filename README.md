@@ -7,6 +7,7 @@ C# porting of Turf.js "A modular geospatial engine written in JavaScript http://
 * Json.NET (https://github.com/JamesNK/Newtonsoft.Json)
 
 # Porting status
+Now porting is based on v 3.7.0 (https://github.com/Turfjs/turf/tree/v3.7.0)
 
 ## AGGREGATION
 * collect
