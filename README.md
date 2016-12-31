@@ -10,6 +10,7 @@ C# porting of Turf.js "A modular geospatial engine written in JavaScript http://
 
 ## AGGREGATION
 * collect
+
 ## MEASUREMENT
 * along => done  
 * area  
@@ -24,6 +25,7 @@ C# porting of Turf.js "A modular geospatial engine written in JavaScript http://
 * midpoint
 * pointOnSurface
 * square
+
 ## TRANSFORMATION
 * bezier
 * buffer
@@ -33,6 +35,7 @@ C# porting of Turf.js "A modular geospatial engine written in JavaScript http://
 * intersect
 * simplify
 * union
+
 ## MISC
 * combine
 * explode
@@ -40,6 +43,7 @@ C# porting of Turf.js "A modular geospatial engine written in JavaScript http://
 * kinks
 * lineSlice
 * pointOnLine
+
 ## HELPER
 * featureCollection
 * feature
@@ -50,30 +54,37 @@ C# porting of Turf.js "A modular geospatial engine written in JavaScript http://
 * multiPoint
 * multiPolygon
 * geometryCollection
+
 ## DATA
 * random
 * sample
+
 ## INTERPOLATION
 * isolines
 * planepoint
 * tin => done
+
 ## JOINS
 * inside => done
 * tag => done
+
 ## GRIDS
 * hexGrid
 * pointGrid
 * squareGrid
 * triangleGrid
 * within
+
 ## CLASSIFICATION
 * nearest
+
 ## META
 * propEach
 * coordEach
 * coordReduce
 * featureEach
 * getCoord
+
 ## ASSERTIONS
 * featureOf
 * collectionOf
