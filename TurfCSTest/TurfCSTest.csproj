@@ -50,7 +50,6 @@
     <EmbeddedResource Include="test\tagPoints.geojson" />
     <EmbeddedResource Include="test\tagPolygons.geojson" />
     <EmbeddedResource Include="test\Points.geojson" />
-    <EmbeddedResource Include="test\Point.geojson" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="test\" />

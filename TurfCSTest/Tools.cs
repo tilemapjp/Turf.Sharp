@@ -20,7 +20,7 @@ namespace TurfCSTest
 			}
 			try
 			{
-				string path = Names.First(x => x.EndsWith(resourceName, StringComparison.CurrentCultureIgnoreCase));
+				string path = Names.First(x => x.EndsWith("." + resourceName, StringComparison.CurrentCultureIgnoreCase));
 				var stream = Assembly.GetManifestResourceStream(path);
 				using (var reader = new StreamReader(stream, Encoding.UTF8))
 				{
