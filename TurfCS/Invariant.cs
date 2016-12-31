@@ -34,6 +34,10 @@ namespace TurfCS
 				var coords = (GeographicPosition)point.Coordinates;
 				return new List<double>() { coords.Longitude, coords.Latitude };
 			}
+			else if (obj is GeographicPosition) {
+				var coords = (GeographicPosition)obj;
+				return new List<double>() { coords.Longitude, coords.Latitude };
+			}
 			throw new Exception("A coordinate, feature, or point geometry is required");
 		}
 	}

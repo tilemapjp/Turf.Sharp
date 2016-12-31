@@ -62,16 +62,51 @@ namespace TurfCS
 		static public double RadiansToDistance(double radians, string units = "kilometers")
 		{
 			double factor;
-			if (factors.TryGetValue(units,out factor))
-			{
+			if (factors.TryGetValue(units,out factor)) {
 				return radians * factor;
 			} else {
 				throw new Exception("Invalid unit");
 			}
 		}
 
+		/*
+		 * Convert a distance measurement from a real-world unit into radians
+		 *
+		 * @name distanceToRadians
+		 * @param {number} distance in real units
+		 * @param {string} [units=kilometers] can be degrees, radians, miles, or kilometers
+		 * inches, yards, metres, meters, kilometres, kilometers.
+		 * @returns {number} radians
+		 */
+		static public double DistanceToRadians(double distance, string units = "kilometers")
+		{
+			double factor;
+			if (factors.TryGetValue(units, out factor))	{ 
+				return distance / factor;
+			} else {
+				throw new Exception("Invalid unit");
+			}
+		}
 
-	
-	
+		/*
+		 * Convert a distance measurement from a real-world unit into degrees
+		 *
+		 * @name distanceToRadians
+		 * @param {number} distance in real units
+		 * @param {string} [units=kilometers] can be degrees, radians, miles, or kilometers
+		 * inches, yards, metres, meters, kilometres, kilometers.
+		 * @returns {number} degrees
+		 */
+		static public double DistanceToDegrees(double distance, string units = "kilometers")
+		{
+			double factor;
+			if (factors.TryGetValue(units, out factor))
+			{
+				return (distance / factor) * 57.2958;
+			}
+			else {
+				throw new Exception("Invalid unit");
+			}			
+		}
 	}
 }
