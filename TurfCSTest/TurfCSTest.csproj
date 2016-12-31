@@ -40,6 +40,7 @@
     <Compile Include="JoinsTest.cs" />
     <Compile Include="Tools.cs" />
     <Compile Include="TinTest.cs" />
+    <Compile Include="MeasurementTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -50,6 +51,7 @@
     <EmbeddedResource Include="test\tagPoints.geojson" />
     <EmbeddedResource Include="test\tagPolygons.geojson" />
     <EmbeddedResource Include="test\Points.geojson" />
+    <EmbeddedResource Include="test\fixtures_dc-line.geojson" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="test\" />
