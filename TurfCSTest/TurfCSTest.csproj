@@ -41,6 +41,7 @@
     <Compile Include="Tools.cs" />
     <Compile Include="TinTest.cs" />
     <Compile Include="MeasurementTest.cs" />
+    <Compile Include="MetaTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

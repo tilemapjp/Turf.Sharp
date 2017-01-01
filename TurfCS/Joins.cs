@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using GeoJSON.Net;
 using GeoJSON.Net.Feature;
@@ -34,27 +34,27 @@ namespace TurfCS
 		{
 			var type = poly.Geometry.Type;
 			if (type == GeoJSONObjectType.Polygon)
-				return Inside_(Invariant.GetCoord(point), new List<Polygon>() { (Polygon)poly.Geometry });
+				return Inside_(Turf.GetCoord(point), new List<Polygon>() { (Polygon)poly.Geometry });
 			else if (type == GeoJSONObjectType.MultiPolygon)
-				return Inside_(Invariant.GetCoord(point), ((MultiPolygon)poly.Geometry).Coordinates);
+				return Inside_(Turf.GetCoord(point), ((MultiPolygon)poly.Geometry).Coordinates);
 			else
 				throw new Exception("2nd argument must be Polygon or MultiPolygon");
 		}
 		/*static public bool Inside(Feature point, Polygon poly)
 		{
-			return Inside_(Invariant.GetCoord(point), new List<Polygon>() { poly });
+			return Inside_(Turf.GetCoord(point), new List<Polygon>() { poly });
 		}
 		static public bool Inside(Feature point, MultiPolygon mpoly)
 		{
-			return Inside_(Invariant.GetCoord(point), mpoly.Coordinates);
+			return Inside_(Turf.GetCoord(point), mpoly.Coordinates);
 		}
 		static public bool Inside(Point point, Polygon poly)
 		{
-			return Inside_(Invariant.GetCoord(point), new List<Polygon>() { poly });
+			return Inside_(Turf.GetCoord(point), new List<Polygon>() { poly });
 		}
 		static public bool Inside(Point point, MultiPolygon mpoly)
 		{
-			return Inside_(Invariant.GetCoord(point), mpoly.Coordinates);
+			return Inside_(Turf.GetCoord(point), mpoly.Coordinates);
 		}*/
 		static private bool Inside_(List<double> pt, List<Polygon> polys)
 		{

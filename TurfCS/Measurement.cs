@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using GeoJSON.Net;
 using GeoJSON.Net.Feature;
@@ -50,11 +50,11 @@ namespace TurfCS
 		 */
 		public static double Bearing(IPosition start, IPosition end)
 		{
-			return Bearing(Invariant.GetCoord(start), Invariant.GetCoord(end));
+			return Bearing(Turf.GetCoord(start), Turf.GetCoord(end));
 		}
 		public static double Bearing(Feature start, Feature end)
 		{
-			return Bearing(Invariant.GetCoord(start), Invariant.GetCoord(end));
+			return Bearing(Turf.GetCoord(start), Turf.GetCoord(end));
 		}
 		private static double Bearing(List<double> start, List<double> end)
 		{
@@ -110,17 +110,17 @@ namespace TurfCS
 		 */
 		public static Feature Destination(IPosition from, double distance, double bearing, string units = "kilometers")
 		{
-			return Destination(Invariant.GetCoord(from), distance, bearing, units);
+			return Destination(Turf.GetCoord(from), distance, bearing, units);
 		}
 		public static Feature Destination(Feature from, double distance, double bearing, string units = "kilometers")
 		{
-			return Destination(Invariant.GetCoord(from), distance, bearing, units);
+			return Destination(Turf.GetCoord(from), distance, bearing, units);
 		}
 		private static Feature Destination(List<double> from, double distance, double bearing, string units = "kilometers")
 		{
 			var degrees2radians = Math.PI / 180;
 			var radians2degrees = 180 / Math.PI;
-			var coordinates1 = Invariant.GetCoord(from);
+			var coordinates1 = Turf.GetCoord(from);
 			var longitude1 = degrees2radians * coordinates1[0];
 			var latitude1 = degrees2radians * coordinates1[1];
 			var bearing_rad = degrees2radians * bearing;
@@ -179,11 +179,11 @@ namespace TurfCS
 		 */
 		public static double Distance(IPosition from, IPosition to, string units = "kilometers")
 		{
-			return Distance(Invariant.GetCoord(from), Invariant.GetCoord(to), units);
+			return Distance(Turf.GetCoord(from), Turf.GetCoord(to), units);
 		}
 		public static double Distance(Feature from, Feature to, string units = "kilometers")
 		{
-			return Distance(Invariant.GetCoord(from), Invariant.GetCoord(to), units);
+			return Distance(Turf.GetCoord(from), Turf.GetCoord(to), units);
 		}
 		private static double Distance(List<double> from, List<double> to, string units = "kilometers")
 		{

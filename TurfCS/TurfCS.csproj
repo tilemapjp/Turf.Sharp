@@ -29,7 +29,7 @@
   <ItemGroup>
     <Compile Include="Helpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Invariant.cs" />
+    <Compile Include="Meta.cs" />
     <Compile Include="Joins.cs" />
     <Compile Include="Tin.cs" />
     <Compile Include="Measurement.cs" />
