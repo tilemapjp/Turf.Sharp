@@ -116,5 +116,19 @@ namespace TurfCSTest
 			Assert.AreEqual(output, expect);
 
 		}
+
+		[Test()]
+		public void PropEach()
+		{
+			Action<Dictionary<string, object>, int> callback = (Dictionary<string, object>obj, int i) =>
+			{
+				Assert.AreEqual(obj, new Dictionary<string, object>() { { "a", 1 } });
+				Assert.AreEqual(i, 0);
+			};
+			Turf.PropEach(pointFeature, callback);
+
+			var pointCollect = Collection(pointFeature);
+			Turf.PropEach(pointCollect, callback);
+		}
 	}
 }
