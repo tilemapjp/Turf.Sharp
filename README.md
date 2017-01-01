@@ -81,10 +81,10 @@ Now porting is based on v 3.7.0 (https://github.com/Turfjs/turf/tree/v3.7.0)
 
 ## META
 * propEach
-* coordEach
+* coordEach => done
 * coordReduce
 * featureEach
-* getCoord
+* getCoord => done
 
 ## ASSERTIONS
 * featureOf
