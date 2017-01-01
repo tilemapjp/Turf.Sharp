@@ -42,6 +42,7 @@
     <Compile Include="TinTest.cs" />
     <Compile Include="MeasurementTest.cs" />
     <Compile Include="MetaTest.cs" />
+    <Compile Include="AssertionsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -53,9 +54,16 @@
     <EmbeddedResource Include="test\tagPolygons.geojson" />
     <EmbeddedResource Include="test\Points.geojson" />
     <EmbeddedResource Include="test\fixtures_dc-line.geojson" />
+    <EmbeddedResource Include="test\bbox\FeatureCollection.geojson" />
+    <EmbeddedResource Include="test\bbox\LineString.geojson" />
+    <EmbeddedResource Include="test\bbox\MultiLineString.geojson" />
+    <EmbeddedResource Include="test\bbox\MultiPolygon.geojson" />
+    <EmbeddedResource Include="test\bbox\Point.geojson" />
+    <EmbeddedResource Include="test\bbox\Polygon.geojson" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="test\" />
+    <Folder Include="test\bbox\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TurfCS\TurfCS.csproj">

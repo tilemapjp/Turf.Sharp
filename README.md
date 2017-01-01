@@ -18,7 +18,7 @@ Now porting is based on v 3.7.0 (https://github.com/Turfjs/turf/tree/v3.7.0)
 * bboxPolygon  
 * bearing => done  
 * center
-* centroid
+* centroid => done 
 * destination => done
 * distance => done
 * envelope
@@ -80,16 +80,16 @@ Now porting is based on v 3.7.0 (https://github.com/Turfjs/turf/tree/v3.7.0)
 * nearest
 
 ## META
-* propEach
+* propEach => done 
 * coordEach => done
-* coordReduce
+* coordReduce => done 
 * featureEach
 * getCoord => done
 
 ## ASSERTIONS
 * featureOf
 * collectionOf
-* bbox
+* bbox => done 
 * centerOfMass
 * circle
 * index

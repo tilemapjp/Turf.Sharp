@@ -150,6 +150,20 @@ namespace TurfCS
 			}
 		}
 
+		/**
+		 * Reduce coordinates in any GeoJSON object into a single value,
+		 * similar to how Array.reduce works. However, in this case we lazily run
+		 * the reduction, so an array of all coordinates is unnecessary.
+		 *
+		 * @name coordReduce
+		 * @param {Object} layer any GeoJSON object
+		 * @param {Function} callback a method that takes (memo, value) and returns
+		 * a new memo
+		 * @param {*} memo the starting value of memo: can be any type.
+		 * @param {boolean=} excludeWrapCoord whether or not to include
+		 * the final coordinate of LinearRings that wraps the ring in its iteration.
+		 * @returns {*} combined value
+		 */
 		static public object CoordReduce(IGeoJSONObject layer, Func<object, GeographicPosition, object> callback,
 										 object memo, bool excludeWrapCoord = false)
 		{
@@ -161,6 +175,19 @@ namespace TurfCS
 			return ret;
 		}
 
+		/**
+		 * Iterate over property objects in any GeoJSON object, similar to
+		 * Array.forEach.
+		 *
+		 * @name propEach
+		 * @param {Object} layer any GeoJSON object
+		 * @param {Function} callback a method that takes (value)
+		 * @example
+		 * var point = { type: 'Feature', geometry: null, properties: { foo: 1 } };
+		 * propEach(point, function(props) {
+		 *   // props is equal to { foo: 1}
+		 * });
+		 */
 		static public void PropEach(IGeoJSONObject layer, Action<Dictionary<string, object>, int> callback)
 		{
 			if (layer.Type == GeoJSONObjectType.FeatureCollection)

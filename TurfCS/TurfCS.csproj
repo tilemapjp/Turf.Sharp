@@ -33,6 +33,7 @@
     <Compile Include="Joins.cs" />
     <Compile Include="Tin.cs" />
     <Compile Include="Measurement.cs" />
+    <Compile Include="Assertions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="GeoJSON.Net">
