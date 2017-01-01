@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{909CB9ED-FC28-4FC4-91DB-26F492D0BE3F}|単体テスト">
-  <MonoDevelop.Ide.Workbench ActiveDocument="TurfCSTest/TinTest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TurfCSTest/MetaTest.cs">
     <Files>
       <File FileName="../GeoJSON.Net/src/GeoJSON.Net.Tests/CoordinateReferenceSystem/DefaultCrsTests.cs" Line="1" Column="19" />
       <File FileName="../GeoJSON.Net/src/GeoJSON.Net.Tests/TestBase.cs" Line="23" Column="26" />
@@ -7,19 +7,19 @@
       <File FileName="../GeoJSON.Net/src/GeoJSON.Net.Tests/Geometry/PolygonTests_Can_Deserialize.json" Line="1" Column="1" />
       <File FileName="../GeoJSON.Net/src/GeoJSON.Net.Tests/Geometry/PolygonTests.cs" Line="34" Column="29" />
       <File FileName="TurfCSTest/JoinsTest.cs" Line="72" Column="24" />
-      <File FileName="TurfCS/Joins.cs" Line="11" Column="6" />
-      <File FileName="TurfCS/Helpers.cs" Line="81" Column="71" />
-      <File FileName="TurfCS/Meta.cs" Line="48" Column="4" />
+      <File FileName="TurfCS/Joins.cs" Line="1" Column="1" />
+      <File FileName="TurfCS/Helpers.cs" Line="1" Column="1" />
+      <File FileName="TurfCS/Meta.cs" Line="164" Column="53" />
       <File FileName="TurfCSTest/test/tagPoints.geojson" Line="73" Column="20" />
       <File FileName="TurfCSTest/test/tagPolygons.geojson" Line="168" Column="2" />
       <File FileName="TurfCS/Tin.cs" Line="1" Column="1" />
-      <File FileName="TurfCSTest/TinTest.cs" Line="16" Column="4" />
+      <File FileName="TurfCSTest/TinTest.cs" Line="10" Column="1" />
       <File FileName="TurfCSTest/test/Points.geojson" Line="1" Column="1" />
       <File FileName="TurfCSTest/Tools.cs" Line="1" Column="1" />
       <File FileName="TurfCS/Measurement.cs" Line="1" Column="1" />
-      <File FileName="TurfCSTest/MeasurementTest.cs" Line="77" Column="54" />
-      <File FileName="TurfCSTest/test/fixtures_dc-line.geojson" Line="66" Column="13" />
-      <File FileName="TurfCSTest/MetaTest.cs" Line="1" Column="1" />
+      <File FileName="TurfCSTest/MeasurementTest.cs" Line="1" Column="1" />
+      <File FileName="TurfCSTest/test/fixtures_dc-line.geojson" Line="1" Column="1" />
+      <File FileName="TurfCSTest/MetaTest.cs" Line="131" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
