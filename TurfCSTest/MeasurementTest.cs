@@ -78,5 +78,18 @@ namespace TurfCSTest
 			Assert.AreEqual(exp.Longitude, act.Longitude);
 			Assert.AreEqual(exp.Latitude, act.Latitude);
 		}
+
+		[Test()]
+		public void BboxPolygon()
+		{
+			var poly = Turf.BboxPolygon(new List<double>() { 0, 0, 10, 10 });
+
+			Assert.AreEqual(poly.Geometry.Type, GeoJSONObjectType.Polygon, "should be a Polygon geometry type");
+
+			var coords = ((Polygon)poly.Geometry).Coordinates[0].Coordinates;
+			Assert.AreEqual(coords.Count, 5);
+			Assert.AreEqual(((GeographicPosition)coords[0]).Latitude, ((GeographicPosition)coords[coords.Count - 1]).Latitude);
+			Assert.AreEqual(((GeographicPosition)coords[0]).Longitude, ((GeographicPosition)coords[coords.Count - 1]).Longitude);
+		}
 	}
 }
