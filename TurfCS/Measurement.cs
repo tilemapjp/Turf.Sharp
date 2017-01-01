@@ -313,5 +313,38 @@ namespace TurfCS
 			}, true);
 			return Turf.Point(new double[] { xSum / (double)len, ySum / (double)len});
 		}
+
+		/**
+		 * Takes a bbox and returns an equivalent {@link Polygon|polygon}.
+		 *
+		 * @name bboxPolygon
+		 * @param {Array<number>} bbox extent in [minX, minY, maxX, maxY] order
+		 * @return {Feature<Polygon>} a Polygon representation of the bounding box
+		 * @example
+		 * var bbox = [0, 0, 10, 10];
+		 *
+		 * var poly = turf.bboxPolygon(bbox);
+		 *
+		 * //=poly
+		 */
+		public static Feature BboxPolygon(List<double>bbox)
+		{
+			var lowLeft = new GeographicPosition(bbox[1], bbox[0]);
+			var topLeft = new GeographicPosition(bbox[3], bbox[0]);
+			var topRight = new GeographicPosition(bbox[3], bbox[2]);
+			var lowRight = new GeographicPosition(bbox[1], bbox[2]);
+
+			var poly = new Polygon(new List<LineString> () {
+				new LineString(new List<IPosition> {
+					lowLeft,
+					lowRight,
+					topRight,
+					topLeft,
+					lowLeft
+				})
+			});
+
+			return new Feature(poly);
+		}
 	}
 }
