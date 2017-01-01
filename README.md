@@ -15,7 +15,7 @@ Now porting is based on v 3.7.0 (https://github.com/Turfjs/turf/tree/v3.7.0)
 ## MEASUREMENT
 * along => done  
 * area  
-* bboxPolygon  
+* bboxPolygon => done
 * bearing => done  
 * center
 * centroid => done 
