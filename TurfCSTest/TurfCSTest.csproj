@@ -60,10 +60,22 @@
     <EmbeddedResource Include="test\bbox\MultiPolygon.geojson" />
     <EmbeddedResource Include="test\bbox\Point.geojson" />
     <EmbeddedResource Include="test\bbox\Polygon.geojson" />
+    <EmbeddedResource Include="test\center\block.geojson" />
+    <EmbeddedResource Include="test\center\box.geojson" />
+    <EmbeddedResource Include="test\envelope\fc.geojson" />
+    <EmbeddedResource Include="test\linedistance\route1.geojson" />
+    <EmbeddedResource Include="test\linedistance\route2.geojson" />
+    <EmbeddedResource Include="test\linedistance\polygon.geojson" />
+    <EmbeddedResource Include="test\linedistance\multipolygon.geojson" />
+    <EmbeddedResource Include="test\linedistance\multilinestring.geojson" />
+    <EmbeddedResource Include="test\linedistance\featurecollection.geojson" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="test\" />
     <Folder Include="test\bbox\" />
+    <Folder Include="test\center\" />
+    <Folder Include="test\envelope\" />
+    <Folder Include="test\linedistance\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TurfCS\TurfCS.csproj">

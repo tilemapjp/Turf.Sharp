@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using GeoJSON.Net;
 using GeoJSON.Net.Feature;
 using GeoJSON.Net.Geometry;
@@ -346,5 +347,274 @@ namespace TurfCS
 
 			return new Feature(poly);
 		}
+
+		/**
+		 * Takes a {@link Feature} or {@link FeatureCollection} and returns the absolute center point of all features.
+		 *
+		 * @name center
+		 * @param {(Feature|FeatureCollection)} layer input features
+		 * @return {Feature<Point>} a Point feature at the absolute center point of all input features
+		 * @example
+		 * var features = {
+		 *   "type": "FeatureCollection",
+		 *   "features": [
+		 *     {
+		 *       "type": "Feature",
+		 *       "properties": {},
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-97.522259, 35.4691]
+		 *       }
+		 *     }, {
+		 *       "type": "Feature",
+		 *       "properties": {},
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-97.502754, 35.463455]
+		 *       }
+		 *     }, {
+		 *       "type": "Feature",
+		 *       "properties": {},
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-97.508269, 35.463245]
+		 *       }
+		 *     }, {
+		 *       "type": "Feature",
+		 *       "properties": {},
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-97.516809, 35.465779]
+		 *       }
+		 *     }, {
+		 *       "type": "Feature",
+		 *       "properties": {},
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-97.515372, 35.467072]
+		 *       }
+		 *     }, {
+		 *       "type": "Feature",
+		 *       "properties": {},
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-97.509363, 35.463053]
+		 *       }
+		 *     }, {
+		 *       "type": "Feature",
+		 *       "properties": {},
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-97.511123, 35.466601]
+		 *       }
+		 *     }, {
+		 *       "type": "Feature",
+		 *       "properties": {},
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-97.518547, 35.469327]
+		 *       }
+		 *     }, {
+		 *       "type": "Feature",
+		 *       "properties": {},
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-97.519706, 35.469659]
+		 *       }
+		 *     }, {
+		 *       "type": "Feature",
+		 *       "properties": {},
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-97.517839, 35.466998]
+		 *       }
+		 *     }, {
+		 *       "type": "Feature",
+		 *       "properties": {},
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-97.508678, 35.464942]
+		 *       }
+		 *     }, {
+		 *       "type": "Feature",
+		 *       "properties": {},
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-97.514914, 35.463453]
+		 *       }
+		 *     }
+		 *   ]
+		 * };
+		 *
+		 * var centerPt = turf.center(features);
+		 * centerPt.properties['marker-size'] = 'large';
+		 * centerPt.properties['marker-color'] = '#000';
+		 *
+		 * var resultFeatures = features.features.concat(centerPt);
+		 * var result = {
+		 *   "type": "FeatureCollection",
+		 *   "features": resultFeatures
+		 * };
+		 *
+		 * //=result
+		 */
+		public static Feature Center(IGeoJSONObject layer)
+		{
+			var ext = Bbox(layer);
+			var x = (ext[0] + ext[2]) / 2;
+			var y = (ext[1] + ext[3]) / 2;
+			return Turf.Point(new double[] { x, y });
+		}
+
+		/**
+		 * Takes any number of features and returns a rectangular {@link Polygon} that encompasses all vertices.
+		 *
+		 * @name envelope
+		 * @param {(Feature|FeatureCollection)} features input features
+		 * @return {Feature<Polygon>} a rectangular Polygon feature that encompasses all vertices
+		 * @example
+		 * var fc = {
+		 *   "type": "FeatureCollection",
+		 *   "features": [
+		 *     {
+		 *       "type": "Feature",
+		 *       "properties": {
+		 *         "name": "Location A"
+		 *       },
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-75.343, 39.984]
+		 *       }
+		 *     }, {
+		 *       "type": "Feature",
+		 *       "properties": {
+		 *         "name": "Location B"
+		 *       },
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-75.833, 39.284]
+		 *       }
+		 *     }, {
+		 *       "type": "Feature",
+		 *       "properties": {
+		 *         "name": "Location C"
+		 *       },
+		 *       "geometry": {
+		 *         "type": "Point",
+		 *         "coordinates": [-75.534, 39.123]
+		 *       }
+		 *     }
+		 *   ]
+		 * };
+		 *
+		 * var enveloped = turf.envelope(fc);
+		 *
+		 * var resultFeatures = fc.features.concat(enveloped);
+		 * var result = {
+		 *   "type": "FeatureCollection",
+		 *   "features": resultFeatures
+		 * };
+		 *
+		 * //=result
+		 */
+		public static Feature Envelope(IGeoJSONObject features) 
+		{
+			return BboxPolygon(Bbox(features));
+		}
+
+		/**
+		 * Takes a {@link LineString} or {@link Polygon} and measures its length in the specified units.
+		 *
+		 * @name lineDistance
+		 * @param {Feature<(LineString|Polygon)>|FeatureCollection<(LineString|Polygon)>} line line to measure
+		 * @param {string} [units=kilometers] can be degrees, radians, miles, or kilometers
+		 * @return {number} length of the input line
+		 * @example
+		 * var line = {
+		 *   "type": "Feature",
+		 *   "properties": {},
+		 *   "geometry": {
+		 *     "type": "LineString",
+		 *     "coordinates": [
+		 *       [-77.031669, 38.878605],
+		 *       [-77.029609, 38.881946],
+		 *       [-77.020339, 38.884084],
+		 *       [-77.025661, 38.885821],
+		 *       [-77.021884, 38.889563],
+		 *       [-77.019824, 38.892368]
+		 *     ]
+		 *   }
+		 * };
+		 *
+		 * var length = turf.lineDistance(line, 'miles');
+		 *
+		 * //=line
+		 *
+		 * //=length
+		 */
+		public static double LineDistance(IGeoJSONObject line, string units = "kilometers") {
+			if (line.Type == GeoJSONObjectType.FeatureCollection)
+			{
+				return ((FeatureCollection)line).Features.Aggregate(0, (double memo, Feature feature) => {
+					return memo + LineDistance(feature);
+				});
+			}
+
+			var geometry = line.Type == GeoJSONObjectType.Feature ? ((Feature)line).Geometry : (IGeometryObject)line;
+
+			if (geometry.Type == GeoJSONObjectType.LineString)
+			{
+				return Length(((LineString)geometry).Coordinates, units);
+			}
+			else if (geometry.Type == GeoJSONObjectType.Polygon || geometry.Type == GeoJSONObjectType.MultiLineString)
+			{
+				double d = 0;
+				var lines = geometry.Type == GeoJSONObjectType.Polygon ?
+									 ((Polygon)geometry).Coordinates : ((MultiLineString)geometry).Coordinates;
+				for (var i = 0; i < lines.Count; i++)
+				{
+					var points = ((LineString)lines[i]).Coordinates;
+					d += Length(points, units);
+				}
+				return d;
+			}
+			else if (geometry.Type == GeoJSONObjectType.MultiPolygon)
+			{
+				double d = 0;
+				var polygons = ((MultiPolygon)geometry).Coordinates;
+				for (var i = 0; i < polygons.Count; i++)
+				{
+					var lines = ((Polygon)polygons[i]).Coordinates;
+					for (var j = 0; j < lines.Count; j++)
+					{
+						var points = ((LineString)lines[j]).Coordinates;
+						d += Length(points, units);
+					}
+				}
+				return d;
+			}
+			else {
+				throw new Exception("input must be a LineString, MultiLineString, " +
+					"Polygon, or MultiPolygon Feature or Geometry (or a FeatureCollection " +
+					"containing only those types)");
+			}
+
+		}
+
+		private static double Length(List<IPosition>coords, string units)
+		{
+			double travelled = 0;
+			var prevCoords = coords[0];
+			var curCoords = coords[0];
+			for (var i = 1; i < coords.Count; i++)
+			{
+				curCoords = coords[i];
+				travelled += Distance(prevCoords, curCoords, units);
+				prevCoords = curCoords;
+			}
+			return travelled;
+		}
+
+
 	}
 }
