@@ -91,5 +91,98 @@ namespace TurfCSTest
 			Assert.AreEqual(((GeographicPosition)coords[0]).Latitude, ((GeographicPosition)coords[coords.Count - 1]).Latitude);
 			Assert.AreEqual(((GeographicPosition)coords[0]).Longitude, ((GeographicPosition)coords[coords.Count - 1]).Longitude);
 		}
+
+		[Test()]
+		public void Center()
+		{
+			var boxFC = JsonConvert.DeserializeObject<FeatureCollection>(Tools.GetResource("center.box.geojson"));
+			var blockFC = JsonConvert.DeserializeObject<FeatureCollection>(Tools.GetResource("center.block.geojson"));
+
+			var boxFcCenter = Turf.Center(boxFC);
+			boxFcCenter.Properties["marker-color"] = "#f0f";
+			var boxFcCenterArray = Turf.GetCoord(boxFcCenter);
+			Assert.AreEqual(boxFcCenterArray[0], 65.56640625, 0.00001);
+			Assert.AreEqual(boxFcCenterArray[1], 43.59448261855401, 0.00001);
+
+			var blockFcCenter = Turf.Center(blockFC.Features[0]);
+			blockFcCenter.Properties["marker-color"] = "#f0f";
+			var blockFcCenterArray = Turf.GetCoord(blockFcCenter);
+			Assert.AreEqual(blockFcCenterArray[0], -114.02911397119072, 0.00001);
+			Assert.AreEqual(blockFcCenterArray[1], 51.050271120392566, 0.00001);
+
+			boxFC.Features.Add(boxFcCenter);
+			blockFC.Features.Add(blockFcCenter);
+			Console.WriteLine(JsonConvert.SerializeObject(boxFC));
+			Console.WriteLine(JsonConvert.SerializeObject(blockFC));
+		}
+
+		[Test()]
+		public void Envelope()
+		{
+			var fc = JsonConvert.DeserializeObject<FeatureCollection>(Tools.GetResource("envelope.fc.geojson"));
+			var enveloped = Turf.Envelope(fc);
+			Assert.AreEqual(enveloped.Geometry.Type, GeoJSONObjectType.Polygon);
+			var exp = new List<List<double>>() {
+				new List<double> () {20, -10},
+				new List<double> () {130, -10},
+				new List<double> () {130, 4},
+				new List<double> () {20, 4},
+				new List<double> () {20, -10}
+			};
+			var i = 0;
+			Turf.CoordEach(enveloped, (List<double> act) => {
+				Assert.AreEqual(act, exp[i], "positions are correct");
+				i++;
+			});
+		}
+
+		[Test()]
+		public void LineDistance()
+		{
+			var route1 = JsonConvert.DeserializeObject<Feature>(Tools.GetResource("linedistance.route1.geojson"));
+			var route2 = JsonConvert.DeserializeObject<Feature>(Tools.GetResource("linedistance.route2.geojson"));
+
+			Assert.AreEqual(Math.Round(Turf.LineDistance((IGeoJSONObject)route1.Geometry, "miles")), 202);
+
+			var point1 = Turf.Point(new double[] { -75.343, 39.984 });
+			try
+			{
+				Turf.LineDistance(point1, "miles");
+				Assert.Fail();
+			}
+			catch
+			{
+				Assert.Pass();
+			}
+
+			var multiPoint1 = new MultiPoint(new List<Point>() { 
+				new Point(new GeographicPosition(39.984, -75.343)),
+				new Point(new GeographicPosition(39.123, -75.534))          
+			});
+			try
+			{
+				Turf.LineDistance(multiPoint1, "miles");
+				Assert.Fail();
+			}
+			catch
+			{
+				Assert.Pass();
+			}
+
+			Assert.AreEqual(Math.Round(Turf.LineDistance(route1, "miles")), 202);
+			Assert.True((Turf.LineDistance(route2, "kilometers") - 742) < 1 && (Turf.LineDistance(route2, "kilometers") - 742) > (-1));
+
+			var feat = JsonConvert.DeserializeObject<Feature>(Tools.GetResource("linedistance.polygon.geojson"));
+			Assert.AreEqual(Math.Round(1000 * Turf.LineDistance(feat, "kilometers")), 5599);
+
+			feat = JsonConvert.DeserializeObject<Feature>(Tools.GetResource("linedistance.multilinestring.geojson"));
+			Assert.AreEqual(Math.Round(1000 * Turf.LineDistance(feat, "kilometers")), 4705);
+
+			feat = JsonConvert.DeserializeObject<Feature>(Tools.GetResource("linedistance.multipolygon.geojson"));
+			Assert.AreEqual(Math.Round(1000 * Turf.LineDistance(feat, "kilometers")), 8334);
+
+			var fc = JsonConvert.DeserializeObject<FeatureCollection>(Tools.GetResource("linedistance.featurecollection.geojson"));
+			Assert.AreEqual(Math.Round(1000 * Turf.LineDistance(fc, "kilometers")), 10304);
+		}
 	}
 }

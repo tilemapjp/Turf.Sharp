@@ -17,12 +17,12 @@ Now porting is based on v 3.7.0 (https://github.com/Turfjs/turf/tree/v3.7.0)
 * area  
 * bboxPolygon => done
 * bearing => done  
-* center
+* center => done
 * centroid => done 
 * destination => done
 * distance => done
-* envelope
-* lineDistance
+* envelope => done
+* lineDistance => done
 * midpoint
 * pointOnSurface
 * square
