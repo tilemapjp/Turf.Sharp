@@ -23,7 +23,7 @@ Now porting is based on v 3.7.0 (https://github.com/Turfjs/turf/tree/v3.7.0)
 * distance => done
 * envelope => done
 * lineDistance => done
-* midpoint
+* midpoint => done
 * pointOnSurface
 * square
 
@@ -77,7 +77,7 @@ Now porting is based on v 3.7.0 (https://github.com/Turfjs/turf/tree/v3.7.0)
 * within
 
 ## CLASSIFICATION
-* nearest
+* nearest => done
 
 ## META
 * propEach => done 
@@ -91,7 +91,7 @@ Now porting is based on v 3.7.0 (https://github.com/Turfjs/turf/tree/v3.7.0)
 * collectionOf
 * bbox => done 
 * centerOfMass
-* circle
+* circle => done
 * index
 * geojsonType
 * lineSliceAlong

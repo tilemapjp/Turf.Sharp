@@ -184,5 +184,44 @@ namespace TurfCSTest
 			var fc = JsonConvert.DeserializeObject<FeatureCollection>(Tools.GetResource("linedistance.featurecollection.geojson"));
 			Assert.AreEqual(Math.Round(1000 * Turf.LineDistance(fc, "kilometers")), 10304);
 		}
+
+		[Test()]
+		public void MidPoint()
+		{ 
+			var units = "miles";
+
+			var pt1 = Turf.Point(new double[] { 0, 0 });
+			var pt2 = Turf.Point(new double[] { 10, 0 });
+			var mid = Turf.MidPoint(pt1, pt2);
+			Assert.AreEqual(Turf.Distance(pt1, mid, units), Turf.Distance(mid, pt2, units), 0.000001,
+			               "midpoint -- horizonatal equator");
+
+			pt2 = Turf.Point(new double[] { 0, 10 });
+			mid = Turf.MidPoint(pt1, pt2);
+			Assert.AreEqual(Turf.Distance(pt1, mid, units), Turf.Distance(mid, pt2, units), 0.000001,
+						   "midpoint -- vertical from equator");
+
+			mid = Turf.MidPoint(pt2, pt1);
+			Assert.AreEqual(Turf.Distance(pt1, mid, units), Turf.Distance(mid, pt2, units), 0.000001,
+						   "midpoint -- vertical to equator");
+
+			pt1 = Turf.Point(new double[] { -1, 10 });
+			pt2 = Turf.Point(new double[] { 1, -1 });
+			mid = Turf.MidPoint(pt1, pt2);
+			Assert.AreEqual(Turf.Distance(pt1, mid, units), Turf.Distance(mid, pt2, units), 0.000001,
+			   "midpoint -- diagonal back over equator");
+
+			pt1 = Turf.Point(new double[] { -5, -1 });
+			pt2 = Turf.Point(new double[] { 5, 10 });
+			mid = Turf.MidPoint(pt1, pt2);
+			Assert.AreEqual(Turf.Distance(pt1, mid, units), Turf.Distance(mid, pt2, units), 0.000001,
+			   "midpoint -- diagonal forward over equator");
+
+			pt1 = Turf.Point(new double[] { 22.5, 21.94304553343818 });
+			pt2 = Turf.Point(new double[] { 92.10937499999999, 46.800059446787316 });
+			mid = Turf.MidPoint(pt1, pt2);
+			Assert.AreEqual(Turf.Distance(pt1, mid, units), Turf.Distance(mid, pt2, units), 0.000001,
+			   "midpoint -- long distance");
+		}
 	}
 }

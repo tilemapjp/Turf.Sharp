@@ -43,6 +43,7 @@
     <Compile Include="MeasurementTest.cs" />
     <Compile Include="MetaTest.cs" />
     <Compile Include="AssertionsTest.cs" />
+    <Compile Include="ClassificationTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -69,6 +70,8 @@
     <EmbeddedResource Include="test\linedistance\multipolygon.geojson" />
     <EmbeddedResource Include="test\linedistance\multilinestring.geojson" />
     <EmbeddedResource Include="test\linedistance\featurecollection.geojson" />
+    <EmbeddedResource Include="test\nearest\pt.geojson" />
+    <EmbeddedResource Include="test\nearest\pts.geojson" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="test\" />
@@ -76,6 +79,7 @@
     <Folder Include="test\center\" />
     <Folder Include="test\envelope\" />
     <Folder Include="test\linedistance\" />
+    <Folder Include="test\nearest\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TurfCS\TurfCS.csproj">

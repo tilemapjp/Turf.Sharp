@@ -1,24 +1,13 @@
 ﻿<Properties StartupConfiguration="{909CB9ED-FC28-4FC4-91DB-26F492D0BE3F}|単体テスト">
-  <MonoDevelop.Ide.Workbench ActiveDocument="TurfCSTest/test/linedistance/featurecollection.geojson">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TurfCSTest/test/nearest/pts.geojson">
     <Files>
-      <File FileName="TurfCSTest/AssertionsTest.cs" Line="24" Column="1" />
-      <File FileName="TurfCSTest/test/bbox/FeatureCollection.geojson" Line="34" Column="14" />
-      <File FileName="TurfCSTest/test/Points.geojson" Line="1" Column="1" />
-      <File FileName="TurfCSTest/test/bbox/LineString.geojson" Line="9" Column="19" />
-      <File FileName="TurfCSTest/test/bbox/Polygon.geojson" Line="31" Column="5" />
-      <File FileName="TurfCSTest/test/bbox/MultiLineString.geojson" Line="13" Column="11" />
-      <File FileName="TurfCSTest/test/bbox/MultiPolygon.geojson" Line="51" Column="14" />
-      <File FileName="TurfCS/Measurement.cs" Line="596" Column="10" />
-      <File FileName="TurfCSTest/MeasurementTest.cs" Line="207" Column="10" />
-      <File FileName="TurfCSTest/test/center/block.geojson" Line="2076" Column="2" />
-      <File FileName="TurfCSTest/test/center/box.geojson" Line="31" Column="12" />
-      <File FileName="TurfCSTest/test/envelope/fc.geojson" Line="31" Column="27" />
-      <File FileName="TurfCSTest/test/linedistance/route1.geojson" Line="1" Column="16" />
-      <File FileName="TurfCSTest/test/linedistance/route2.geojson" Line="1" Column="17" />
-      <File FileName="TurfCSTest/test/linedistance/polygon.geojson" Line="17" Column="2" />
-      <File FileName="TurfCSTest/test/linedistance/multipolygon.geojson" Line="25" Column="2" />
-      <File FileName="TurfCSTest/test/linedistance/multilinestring.geojson" Line="20" Column="2" />
-      <File FileName="TurfCSTest/test/linedistance/featurecollection.geojson" Line="42" Column="2" />
+      <File FileName="TurfCS/Assertions.cs" Line="84" Column="4" />
+      <File FileName="TurfCSTest/AssertionsTest.cs" Line="82" Column="1" />
+      <File FileName="TurfCS/Classification.cs" Line="64" Column="34" />
+      <File FileName="TurfCSTest/ClassificationTest.cs" Line="21" Column="12" />
+      <File FileName="TurfCSTest/JoinsTest.cs" Line="15" Column="1" />
+      <File FileName="TurfCSTest/test/nearest/pt.geojson" Line="8" Column="2" />
+      <File FileName="TurfCSTest/test/nearest/pts.geojson" Line="4" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
