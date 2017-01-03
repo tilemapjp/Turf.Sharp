@@ -62,5 +62,20 @@ namespace TurfCSTest
 			Assert.AreEqual(multiPolyExtent[2], 103);
 			Assert.AreEqual(multiPolyExtent[3], 3);
 		}
+
+		[Test()]
+		public void Circle()
+		{
+			var center = Turf.Point(new double[] { -75.343, 39.984 });
+			double radius = 5;
+			int steps = 10;
+
+			var polygon = Turf.Circle(center, radius, steps, "kilometers");
+			var point1 = Turf.Destination(center, radius - 1, 45, "kilometers");
+			var point2 = Turf.Destination(center, radius + 1, 135, "kilometers");
+
+			Assert.AreEqual(Turf.Inside(point1, polygon), true, "point is inside the polygon");
+    		Assert.AreEqual(Turf.Inside(point2, polygon), false, "point is outside the polygon");
+		}
 	}
 }
