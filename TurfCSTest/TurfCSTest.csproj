@@ -44,6 +44,7 @@
     <Compile Include="MetaTest.cs" />
     <Compile Include="AssertionsTest.cs" />
     <Compile Include="ClassificationTest.cs" />
+    <Compile Include="MiscTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

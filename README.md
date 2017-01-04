@@ -39,7 +39,7 @@ Now porting is based on v 3.7.0 (https://github.com/Turfjs/turf/tree/v3.7.0)
 
 ## MISC
 * combine
-* explode
+* explode => done
 * flip
 * kinks
 * lineSlice
