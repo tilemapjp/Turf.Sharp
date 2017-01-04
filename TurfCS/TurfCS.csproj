@@ -35,6 +35,7 @@
     <Compile Include="Measurement.cs" />
     <Compile Include="Assertions.cs" />
     <Compile Include="Classification.cs" />
+    <Compile Include="Misc.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="GeoJSON.Net">
